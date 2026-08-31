@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paula Alejandra | Mis XV Años</title>
+
+<style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+
+    font-family: Georgia, serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #06152f 0%,
+            #123e70 50%,
+            #8ed1eb 100%
+        );
+}
+
+
+/* =========================================================
+   ESCENAS
+========================================================= */
+
+.escena {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+#portada {
+
+    z-index: 5;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.contenido {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 90%;
+
+    max-width: 750px;
+
+    animation:
+        aparecer 2s ease forwards;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   FRASE SUPERIOR
+========================================================= */
+
+.intro {
+
+    font-size: clamp(10px, 2vw, 15px);
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.nombre {
+
+    font-family:
+
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size:
+
+        clamp(
+            70px,
+            13vw,
+            130px
+        );
+
+    line-height: 0.85;
+
+    color: white;
+
+    text-shadow:
+
+        0 0 10px white,
+
+        0 0 25px #b7edff,
+
+        0 0 50px #74cfff,
+
+        0 0 80px rgba(
+            100,
+            210,
+            255,
+            0.6
+        );
+
+    animation:
+
+        brilloNombre 4s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes brilloNombre {
+
+    from {
+
+        text-shadow:
+
+            0 0 10px white,
+
+            0 0 25px #b7edff;
+
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 15px white,
+
+            0 0 40px #b7edff,
+
+            0 0 70px #74cfff;
+
+    }
+
+}
+
+
+/* =========================================================
+   MIS XV
+========================================================= */
+
+.xv {
+
+    margin-top: 30px;
+
+    font-size:
+
+        clamp(
+            22px,
+            4vw,
+            38px
+        );
+
+    letter-spacing: 8px;
+
+    text-shadow:
+
+        0 0 10px white,
+
+        0 0 25px #8edfff;
+
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.frase {
+
+    margin-top: 25px;
+
+    font-size:
+
+        clamp(
+            14px,
+            2vw,
+            19px
+        );
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.boton {
+
+    position: relative;
+
+    margin-top: 40px;
+
+    padding:
+
+        16px
+        38px;
+
+    min-width: 220px;
+
+    border-radius: 50px;
+
+    border:
+
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+
+    background:
+
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(
+            190,
+            235,
+            255,
+            0.5
+        );
+
+    overflow: hidden;
+
+    transition:
+
+        transform 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.boton:hover {
+
+    transform: scale(1.08);
+
+    background:
+
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    box-shadow:
+
+        0 0 40px
+        rgba(
+            200,
+            240,
+            255,
+            0.8
+        );
+
+}
+
+
+/* =========================================================
+   BRILLO DEL BOTÓN
+========================================================= */
+
+.boton::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                255,
+                255,
+                255,
+                0.8
+            ),
+            transparent
+        );
+
+    transform:
+        skewX(-25deg);
+
+    animation:
+
+        brilloBoton
+        4s
+        infinite;
+
+}
+
+
+@keyframes brilloBoton {
+
+    0% {
+
+        left: -120%;
+
+    }
+
+    30% {
+
+        left: 130%;
+
+    }
+
+    100% {
+
+        left: 130%;
+
+    }
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+#videoEscena {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: scale(1.08);
+
+    z-index: 2;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================================================
+   TÍTULO DEL VIDEO
+========================================================= */
+
+.videoTitulo {
+
+    position: absolute;
+
+    top: 5%;
+
+    font-family:
+
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size:
+
+        clamp(
+            32px,
+            6vw,
+            55px
+        );
+
+    text-shadow:
+
+        0 0 15px white,
+
+        0 0 35px #8ee5ff;
+
+}
+
+
+/* =========================================================
+   MARCO DEL VIDEO
+========================================================= */
+
+.marcoVideo {
+
+    position: relative;
+
+    width: 90%;
+
+    max-width: 950px;
+
+    padding: 10px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.8
+            ),
+            rgba(
+                130,
+                220,
+                255,
+                0.25
+            ),
+            rgba(
+                255,
+                255,
+                255,
+                0.8
+            )
+        );
+
+    box-shadow:
+
+        0 0 30px
+        rgba(
+            190,
+            240,
+            255,
+            0.9
+        ),
+
+        0 0 80px
+        rgba(
+            120,
+            210,
+            255,
+            0.5
+        );
+
+}
+
+
+/* =========================================================
+   VIDEO YOUTUBE
+========================================================= */
+
+.marcoVideo iframe {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border: none;
+
+    border-radius: 18px;
+
+}
+
+
+/* =========================================================
+   COPOS DE NIEVE
+========================================================= */
+
+.copo {
+
+    position: absolute;
+
+    top: -30px;
+
+    color: white;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    text-shadow:
+
+        0 0 10px white,
+
+        0 0 20px #a9eaff;
+
+    animation:
+
+        caer
+        linear
+        infinite;
+
+}
+
+
+@keyframes caer {
+
+    0% {
+
+        transform:
+
+            translateY(-50px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(50vh)
+            translateX(40px)
+            rotate(180deg);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(110vh)
+            translateX(-30px)
+            rotate(360deg);
+
+        opacity: 0.2;
+
+    }
+
+}
+
+
+/* =========================================================
+   CRISTALES
+========================================================= */
+
+.cristal {
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 110px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.45
+            ),
+            rgba(
+                130,
+                220,
+                255,
+                0.05
+            )
+        );
+
+    clip-path:
+
+        polygon(
+            50% 0,
+            100% 35%,
+            75% 100%,
+            25% 100%,
+            0 35%
+        );
+
+    opacity: 0.4;
+
+    filter:
+
+        drop-shadow(
+            0 0 15px
+            rgba(
+                190,
+                235,
+                255,
+                0.7
+            )
+        );
+
+    animation:
+
+        flotar
+        6s
+        ease-in-out
+        infinite;
+
+}
+
+
+.cristal1 {
+
+    left: 5%;
+
+    top: 20%;
+
+}
+
+
+.cristal2 {
+
+    right: 5%;
+
+    top: 25%;
+
+    animation-delay: 2s;
+
+}
+
+
+.cristal3 {
+
+    left: 10%;
+
+    bottom: 15%;
+
+    transform: scale(0.6);
+
+    animation-delay: 3s;
+
+}
+
+
+.cristal4 {
+
+    right: 10%;
+
+    bottom: 15%;
+
+    transform: scale(0.7);
+
+    animation-delay: 1s;
+
+}
+
+
+@keyframes flotar {
+
+    0%,
+    100% {
+
+        transform:
+
+            translateY(0)
+            rotate(5deg);
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(-20px)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   TRANSICIÓN MÁGICA
+========================================================= */
+
+.transicion {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            circle,
+            white 0%,
+            #d9f7ff 15%,
+            #8ee5ff 35%,
+            #24649c 70%,
+            #06152f 100%
+        );
+
+    transition:
+
+        opacity 1.2s ease;
+
+}
+
+
+/* =========================================================
+   CAMBIO A VIDEO
+========================================================= */
+
+.mostrarVideo #portada {
+
+    opacity: 0;
+
+    transform: scale(0.9);
+
+    pointer-events: none;
+
+}
+
+
+.mostrarVideo #videoEscena {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .intro {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+        line-height: 1.6;
+
+    }
+
+    .nombre {
+
+        font-size: 72px;
+
+    }
+
+    .xv {
+
+        font-size: 22px;
+
+        letter-spacing: 5px;
+
+    }
+
+    .frase {
+
+        font-size: 15px;
+
+        padding: 0 15px;
+
+    }
+
+    .boton {
+
+        margin-top: 30px;
+
+        padding: 15px 30px;
+
+    }
+
+    .marcoVideo {
+
+        width: 94%;
+
+    }
+
+    .videoTitulo {
+
+        top: 8%;
+
+    }
+
+    .cristal {
+
+        width: 50px;
+
+        height: 80px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section
+    id="portada"
+    class="escena">
+
+    <div class="contenido">
+
+        <div class="intro">
+
+            Una historia mágica está
+            a punto de comenzar
+
+        </div>
+
+
+        <div class="nombre">
+
+            Paula<br>
+            Alejandra
+
+        </div>
+
+
+        <div class="xv">
+
+            MIS XV AÑOS
+
+        </div>
+
+
+        <div class="frase">
+
+            Una noche de invierno,
+            un sueño se hace realidad...
+
+        </div>
+
+
+        <button
+            class="boton"
+            id="comenzar">
+
+            ❄ COMENZAR ❄
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
+
+<section
+    id="videoEscena"
+    class="escena">
+
+    <div class="videoTitulo">
+
+        Paula Alejandra
+
+    </div>
+
+
+    <div class="marcoVideo">
+
+        <iframe
+
+            id="youtubeVideo"
+
+            src="https://www.youtube.com/embed/JmPtPHn51SY"
+
+            title="Paula Alejandra - Mis XV Años"
+
+            allow="
+                autoplay;
+                encrypted-media;
+                picture-in-picture;
+                web-share
+            "
+
+            allowfullscreen>
+
+        </iframe>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRANSICIÓN
+===================================================== -->
+
+<div
+    class="transicion"
+    id="transicion">
+
+</div>
+
+
+
+<!-- =====================================================
+     CRISTALES
+===================================================== -->
+
+<div class="cristal cristal1"></div>
+
+<div class="cristal cristal2"></div>
+
+<div class="cristal cristal3"></div>
+
+<div class="cristal cristal4"></div>
+
+
+
+<script>
+
+
+/* =========================================================
+   COPOS DE NIEVE
+========================================================= */
+
+const simbolos = [
+    "❄",
+    "❅",
+    "❆",
+    "✦"
+];
+
+
+const cantidadCopos = 50;
+
+
+for (
+    let i = 0;
+    i < cantidadCopos;
+    i++
+) {
+
+    const copo =
+        document.createElement("div");
+
+
+    copo.className =
+        "copo";
+
+
+    copo.textContent =
+        simbolos[
+            Math.floor(
+                Math.random()
+                *
+                simbolos.length
+            )
+        ];
+
+
+    copo.style.left =
+        Math.random() * 100 + "%";
+
+
+    copo.style.fontSize =
+        (
+            8 +
+            Math.random() * 18
+        ) + "px";
+
+
+    copo.style.animationDuration =
+        (
+            7 +
+            Math.random() * 10
+        ) + "s";
+
+
+    copo.style.animationDelay =
+        Math.random() * 8 + "s";
+
+
+    document.body.appendChild(copo);
+
+}
+
+
+
+/* =========================================================
+   BOTÓN COMENZAR
+========================================================= */
+
+const boton =
+    document.getElementById(
+        "comenzar"
+    );
+
+
+const transicion =
+    document.getElementById(
+        "transicion"
+    );
+
+
+boton.addEventListener(
+    "click",
+    function () {
+
+
+        /* -------------------------------------
+           ACTIVAR TRANSICIÓN
+        ------------------------------------- */
+
+        transicion.style.opacity =
+            "1";
+
+
+        /* -------------------------------------
+           CAMBIAR A VIDEO
+        ------------------------------------- */
+
+        setTimeout(
+            function () {
+
+                document.body.classList.add(
+                    "mostrarVideo"
+                );
+
+
+                transicion.style.opacity =
+                    "0";
+
+
+            },
+            1000
+        );
+
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
+```
