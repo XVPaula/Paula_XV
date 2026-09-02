@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,11 +10,12 @@
 
 <title>Paula Alejandra | Mis XV Años</title>
 
+
 <style>
 
-/* ==============================
+/* =====================================================
    CONFIGURACIÓN GENERAL
-============================== */
+===================================================== */
 
 * {
     margin: 0;
@@ -42,18 +43,18 @@ body {
     background:
         radial-gradient(
             circle at 50% 40%,
-            #4d8db8 0%,
-            #214f7b 38%,
-            #102f55 68%,
+            #5b9bc5 0%,
+            #285d8d 40%,
+            #12385f 70%,
             #06152e 100%
         );
 
 }
 
 
-/* ==============================
+/* =====================================================
    LUCES DEL FONDO
-============================== */
+===================================================== */
 
 body::before {
 
@@ -64,6 +65,8 @@ body::before {
     inset: 0;
 
     pointer-events: none;
+
+    z-index: 1;
 
     background:
 
@@ -85,14 +88,149 @@ body::before {
             transparent 25%
         );
 
-    z-index: 1;
+}
+
+
+/* =====================================================
+   CAPA DE NIEVE
+   MUY IMPORTANTE:
+   ESTÁ POR ENCIMA DE TODAS LAS ESCENAS
+===================================================== */
+
+#snowLayer {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 250;
 
 }
 
 
-/* ==============================
+/* =====================================================
+   COPOS
+===================================================== */
+
+.copo {
+
+    position: absolute;
+
+    top: -60px;
+
+    color: white;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 6px white,
+        0 0 14px #b9efff,
+        0 0 25px #6ed6ff;
+
+    will-change:
+        transform, opacity;
+
+    animation-name: caer;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: infinite;
+
+}
+
+
+/* =====================================================
+   CAÍDA DE LOS COPOS
+===================================================== */
+
+@keyframes caer {
+
+    0% {
+
+        transform:
+            translate3d(
+                0,
+                -60px,
+                0
+            )
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    8% {
+
+        opacity: .95;
+
+    }
+
+    25% {
+
+        transform:
+            translate3d(
+                35px,
+                25vh,
+                0
+            )
+            rotate(90deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(
+                -25px,
+                50vh,
+                0
+            )
+            rotate(180deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate3d(
+                40px,
+                75vh,
+                0
+            )
+            rotate(270deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate3d(
+                -30px,
+                115vh,
+                0
+            )
+            rotate(360deg);
+
+        opacity: .15;
+
+    }
+
+}
+
+
+/* =====================================================
    PORTADA
-============================== */
+===================================================== */
 
 #portada {
 
@@ -114,11 +252,24 @@ body::before {
 
     z-index: 20;
 
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #4f91bd 0%,
+            #24577f 42%,
+            #12385f 70%,
+            #06152e 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
     transition:
-
-        opacity 1.4s ease,
-
-        transform 1.4s ease;
+        opacity 1.5s ease,
+        transform 1.5s ease;
 
 }
 
@@ -131,10 +282,9 @@ body::before {
 
     width: 90%;
 
-    max-width: 800px;
+    max-width: 850px;
 
     animation:
-
         aparecer 2s ease forwards;
 
 }
@@ -163,129 +313,174 @@ body::before {
 }
 
 
-/* ==============================
-   INTRO
-============================== */
+/* =====================================================
+   TEXTO SUPERIOR
+===================================================== */
 
 .intro {
 
     margin-bottom: 25px;
 
     font-size:
-        clamp(10px, 1.8vw, 15px);
+        clamp(
+            10px,
+            1.8vw,
+            15px
+        );
 
     letter-spacing: 5px;
 
     text-transform: uppercase;
 
     text-shadow:
-
         0 0 8px white,
-
         0 0 20px #9de9ff;
 
 }
 
 
-/* ==============================
+/* =====================================================
    NOMBRE
-============================== */
+===================================================== */
 
 .nombre {
 
     font-family:
-
         "Brush Script MT",
         "Segoe Script",
         cursive;
 
     font-size:
-        clamp(70px, 14vw, 135px);
+        clamp(
+            70px,
+            14vw,
+            135px
+        );
 
     line-height: .82;
 
     color: white;
 
     text-shadow:
-
         0 0 10px white,
-
         0 0 25px #d5f8ff,
-
         0 0 45px #94e7ff,
-
         0 0 80px #54c7ff;
+
+    animation:
+        brilloNombre 3.5s
+        ease-in-out
+        infinite
+        alternate;
 
 }
 
 
-/* ==============================
-   XV
-============================== */
+@keyframes brilloNombre {
+
+    from {
+
+        filter:
+            brightness(1);
+
+    }
+
+    to {
+
+        filter:
+            brightness(1.25);
+
+    }
+
+}
+
+
+/* =====================================================
+   MIS XV
+===================================================== */
 
 .xv {
 
     margin-top: 35px;
 
     font-size:
-        clamp(22px, 4vw, 40px);
+        clamp(
+            22px,
+            4vw,
+            40px
+        );
 
     letter-spacing: 8px;
 
     text-shadow:
-
         0 0 10px white,
-
         0 0 25px #a7ecff,
-
         0 0 45px #69d2ff;
 
 }
 
 
-/* ==============================
+/* =====================================================
    FRASE
-============================== */
+===================================================== */
 
 .frase {
 
     margin-top: 25px;
 
     font-size:
-        clamp(14px, 2vw, 19px);
+        clamp(
+            14px,
+            2vw,
+            19px
+        );
 
     font-style: italic;
 
     line-height: 1.7;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8);
+        0 0 10px rgba(
+            255,
+            255,
+            255,
+            .8
+        );
 
 }
 
 
-/* ==============================
-   BOTÓN
-============================== */
+/* =====================================================
+   BOTÓN COMENZAR
+===================================================== */
 
 .boton {
 
-    position: relative;
-
     margin-top: 40px;
 
-    padding: 16px 40px;
+    padding:
+        16px 40px;
 
     min-width: 230px;
 
     border:
         1px solid
-        rgba(255,255,255,.9);
+        rgba(
+            255,
+            255,
+            255,
+            .9
+        );
 
     border-radius: 50px;
 
     background:
-        rgba(255,255,255,.12);
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
 
     color: white;
 
@@ -299,22 +494,30 @@ body::before {
 
     cursor: pointer;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
     box-shadow:
 
         0 0 20px
-        rgba(190,240,255,.6),
+        rgba(
+            190,
+            240,
+            255,
+            .6
+        ),
 
         inset 0 0 15px
-        rgba(255,255,255,.08);
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
 
     transition:
-
         transform .4s ease,
-
         background .4s ease,
-
         box-shadow .4s ease;
 
 }
@@ -322,93 +525,32 @@ body::before {
 
 .boton:hover {
 
-    transform: scale(1.08);
+    transform:
+        scale(1.08);
 
     background:
-        rgba(255,255,255,.23);
+        rgba(
+            255,
+            255,
+            255,
+            .23
+        );
 
     box-shadow:
-
         0 0 35px
-        rgba(200,245,255,.9);
+        rgba(
+            200,
+            245,
+            255,
+            .9
+        );
 
 }
 
 
-/* ==============================
-   COPOS
-============================== */
-
-.copo {
-
-    position: fixed;
-
-    top: -40px;
-
-    color: white;
-
-    pointer-events: none;
-
-    user-select: none;
-
-    z-index: 10;
-
-    text-shadow:
-
-        0 0 8px white,
-
-        0 0 18px #a8eaff,
-
-        0 0 30px #65ceff;
-
-    animation:
-        caer linear infinite;
-
-}
-
-
-@keyframes caer {
-
-    0% {
-
-        transform:
-            translate3d(0,-50px,0)
-            rotate(0deg);
-
-        opacity: 0;
-
-    }
-
-    10% {
-
-        opacity: .95;
-
-    }
-
-    50% {
-
-        transform:
-            translate3d(40px,50vh,0)
-            rotate(180deg);
-
-    }
-
-    100% {
-
-        transform:
-            translate3d(-40px,110vh,0)
-            rotate(360deg);
-
-        opacity: .1;
-
-    }
-
-}
-
-
-/* ==============================
+/* =====================================================
    CRISTALES
-============================== */
+===================================================== */
 
 .cristal {
 
@@ -440,16 +582,22 @@ body::before {
     opacity: .35;
 
     filter:
-
         drop-shadow(
             0 0 15px
-            rgba(180,240,255,.9)
+            rgba(
+                180,
+                240,
+                255,
+                .9
+            )
         );
 
     animation:
-        flotar 6s ease-in-out infinite;
+        flotar 6s
+        ease-in-out
+        infinite;
 
-    z-index: 6;
+    z-index: 8;
 
 }
 
@@ -457,6 +605,7 @@ body::before {
 .cristal1 {
 
     left: 4%;
+
     top: 18%;
 
 }
@@ -465,9 +614,11 @@ body::before {
 .cristal2 {
 
     right: 4%;
+
     top: 22%;
 
-    animation-delay: 1.5s;
+    animation-delay:
+        1.5s;
 
 }
 
@@ -475,11 +626,14 @@ body::before {
 .cristal3 {
 
     left: 9%;
+
     bottom: 10%;
 
-    transform: scale(.65);
+    transform:
+        scale(.65);
 
-    animation-delay: 3s;
+    animation-delay:
+        3s;
 
 }
 
@@ -487,11 +641,14 @@ body::before {
 .cristal4 {
 
     right: 9%;
+
     bottom: 12%;
 
-    transform: scale(.7);
+    transform:
+        scale(.7);
 
-    animation-delay: 2s;
+    animation-delay:
+        2s;
 
 }
 
@@ -518,9 +675,9 @@ body::before {
 }
 
 
-/* ==============================
-   VIDEO
-============================== */
+/* =====================================================
+   ESCENA VIDEO
+===================================================== */
 
 #videoEscena {
 
@@ -558,18 +715,22 @@ body::before {
 
     pointer-events: none;
 
-    transform: scale(1.08);
+    transform:
+        scale(1.08);
 
     transition:
 
         opacity 1.5s ease,
-
         transform 1.5s ease;
 
     z-index: 30;
 
 }
 
+
+/* =====================================================
+   TÍTULO VIDEO
+===================================================== */
 
 .tituloVideo {
 
@@ -584,22 +745,23 @@ body::before {
         cursive;
 
     font-size:
-        clamp(35px, 6vw, 60px);
+        clamp(
+            35px,
+            6vw,
+            60px
+        );
 
     text-shadow:
-
         0 0 15px white,
-
         0 0 35px #8ee5ff,
-
         0 0 60px #54c7ff;
 
 }
 
 
-/* ==============================
+/* =====================================================
    MARCO VIDEO
-============================== */
+===================================================== */
 
 .marcoVideo {
 
@@ -625,13 +787,27 @@ body::before {
     box-shadow:
 
         0 0 25px
-        rgba(210,245,255,.95),
+        rgba(
+            210,
+            245,
+            255,
+            .95
+        ),
 
         0 0 70px
-        rgba(100,210,255,.6);
+        rgba(
+            100,
+            210,
+            255,
+            .6
+        );
 
 }
 
+
+/* =====================================================
+   IFRAME YOUTUBE
+===================================================== */
 
 #youtube {
 
@@ -639,7 +815,8 @@ body::before {
 
     width: 100%;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio:
+        16 / 9;
 
     border: none;
 
@@ -648,9 +825,9 @@ body::before {
 }
 
 
-/* ==============================
+/* =====================================================
    PANTALLA FINAL
-============================== */
+===================================================== */
 
 #final {
 
@@ -688,18 +865,22 @@ body::before {
 
     pointer-events: none;
 
-    transform: scale(1.08);
+    transform:
+        scale(1.08);
 
     transition:
 
         opacity 1.5s ease,
-
         transform 1.5s ease;
 
     z-index: 40;
 
 }
 
+
+/* =====================================================
+   TEXTO LA MAGIA CONTINÚA
+===================================================== */
 
 .magia {
 
@@ -710,7 +891,12 @@ body::before {
         cursive;
 
     font-size:
-        clamp(55px, 10vw, 100px);
+
+        clamp(
+            55px,
+            10vw,
+            100px
+        );
 
     line-height: .9;
 
@@ -730,7 +916,12 @@ body::before {
     margin-top: 30px;
 
     font-size:
-        clamp(15px, 2.5vw, 21px);
+
+        clamp(
+            15px,
+            2.5vw,
+            21px
+        );
 
     font-style: italic;
 
@@ -739,20 +930,35 @@ body::before {
 }
 
 
+/* =====================================================
+   BOTÓN INVITACIÓN
+===================================================== */
+
 #abrirInvitacion {
 
     margin-top: 40px;
 
-    padding: 17px 42px;
+    padding:
+        17px 42px;
 
     border-radius: 50px;
 
     border:
         1px solid
-        rgba(255,255,255,.9);
+        rgba(
+            255,
+            255,
+            255,
+            .9
+        );
 
     background:
-        rgba(255,255,255,.16);
+        rgba(
+            255,
+            255,
+            255,
+            .16
+        );
 
     color: white;
 
@@ -768,7 +974,12 @@ body::before {
 
     box-shadow:
         0 0 25px
-        rgba(200,240,255,.7);
+        rgba(
+            200,
+            240,
+            255,
+            .7
+        );
 
     backdrop-filter:
         blur(10px);
@@ -782,17 +993,23 @@ body::before {
 
 #abrirInvitacion:hover {
 
-    transform: scale(1.08);
+    transform:
+        scale(1.08);
 
     background:
-        rgba(255,255,255,.28);
+        rgba(
+            255,
+            255,
+            255,
+            .28
+        );
 
 }
 
 
-/* ==============================
-   TRANSICIÓN
-============================== */
+/* =====================================================
+   TRANSICIÓN DE HIELO
+===================================================== */
 
 #transicion {
 
@@ -800,7 +1017,7 @@ body::before {
 
     inset: 0;
 
-    z-index: 100;
+    z-index: 300;
 
     pointer-events: none;
 
@@ -824,17 +1041,20 @@ body::before {
 }
 
 
-/* ==============================
-   ESTADOS
-============================== */
+/* =====================================================
+   ESTADO: MOSTRAR VIDEO
+===================================================== */
 
 body.mostrarVideo #portada {
 
     opacity: 0;
 
-    transform: scale(.92);
+    visibility: hidden;
 
     pointer-events: none;
+
+    transform:
+        scale(.92);
 
 }
 
@@ -847,7 +1067,21 @@ body.mostrarVideo #videoEscena {
 
     pointer-events: auto;
 
-    transform: scale(1);
+    transform:
+        scale(1);
+
+}
+
+
+/* =====================================================
+   ESTADO: MOSTRAR FINAL
+===================================================== */
+
+body.mostrarFinal #portada {
+
+    opacity: 0;
+
+    visibility: hidden;
 
 }
 
@@ -860,6 +1094,9 @@ body.mostrarFinal #videoEscena {
 
     pointer-events: none;
 
+    transform:
+        scale(.92);
+
 }
 
 
@@ -871,14 +1108,15 @@ body.mostrarFinal #final {
 
     pointer-events: auto;
 
-    transform: scale(1);
+    transform:
+        scale(1);
 
 }
 
 
-/* ==============================
-   CELULAR
-============================== */
+/* =====================================================
+   CELULARES
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -888,6 +1126,7 @@ body.mostrarFinal #final {
 
     }
 
+
     .xv {
 
         font-size: 21px;
@@ -896,13 +1135,29 @@ body.mostrarFinal #final {
 
     }
 
+
     .frase {
 
         font-size: 15px;
 
-        padding: 0 10px;
+        padding:
+            0 10px;
 
     }
+
+
+    .boton {
+
+        margin-top: 30px;
+
+        padding:
+            15px 30px;
+
+        min-width:
+            210px;
+
+    }
+
 
     .marcoVideo {
 
@@ -910,27 +1165,42 @@ body.mostrarFinal #final {
 
         padding: 7px;
 
-        border-radius: 18px;
+        border-radius:
+            18px;
 
     }
+
 
     #youtube {
 
-        border-radius: 13px;
+        border-radius:
+            13px;
 
     }
 
+
     .tituloVideo {
+
+        top: 7%;
 
         font-size: 38px;
 
     }
+
 
     .magia {
 
         font-size: 65px;
 
     }
+
+
+    .subtituloFinal {
+
+        font-size: 15px;
+
+    }
+
 
     .cristal {
 
@@ -950,9 +1220,9 @@ body.mostrarFinal #final {
 <body>
 
 
-<!-- ==============================
+<!-- =====================================================
      PORTADA
-============================== -->
+===================================================== -->
 
 <section id="portada">
 
@@ -1003,9 +1273,9 @@ body.mostrarFinal #final {
 
 
 
-<!-- ==============================
+<!-- =====================================================
      VIDEO
-============================== -->
+===================================================== -->
 
 <section id="videoEscena">
 
@@ -1019,15 +1289,35 @@ body.mostrarFinal #final {
     <div class="marcoVideo">
 
         <iframe
+
             id="youtube"
+
             width="560"
+
             height="315"
-            src="https://www.youtube.com/embed/5XFne4L7TW8?enablejsapi=1&rel=0"
-            title="YouTube video player"
+
+            src="https://www.youtube.com/embed/5XFne4L7TW8?enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
+
+            title="Video de Paula Alejandra"
+
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+
+            allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share
+            "
+
+            referrerpolicy="
+                strict-origin-when-cross-origin
+            "
+
             allowfullscreen>
+
         </iframe>
 
     </div>
@@ -1036,9 +1326,9 @@ body.mostrarFinal #final {
 
 
 
-<!-- ==============================
+<!-- =====================================================
      PANTALLA FINAL
-============================== -->
+===================================================== -->
 
 <section id="final">
 
@@ -1060,7 +1350,8 @@ body.mostrarFinal #final {
         </div>
 
 
-        <button id="abrirInvitacion">
+        <button
+            id="abrirInvitacion">
 
             ❄ ABRIR INVITACIÓN ❄
 
@@ -1072,17 +1363,9 @@ body.mostrarFinal #final {
 
 
 
-<!-- ==============================
-     TRANSICIÓN
-============================== -->
-
-<div id="transicion"></div>
-
-
-
-<!-- ==============================
+<!-- =====================================================
      CRISTALES
-============================== -->
+===================================================== -->
 
 <div class="cristal cristal1"></div>
 
@@ -1094,19 +1377,39 @@ body.mostrarFinal #final {
 
 
 
+<!-- =====================================================
+     CAPA DE NIEVE
+===================================================== -->
+
+<div id="snowLayer"></div>
+
+
+
+<!-- =====================================================
+     TRANSICIÓN
+===================================================== -->
+
+<div id="transicion"></div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
+
 /* =====================================================
-   ENLACE DE TU INVITACIÓN
+   💙 ENLACE DE TU INVITACIÓN
 ===================================================== */
 
 const ENLACE_INVITACION =
     "https://xn--olympusdiseos-skb.my.canva.site/xv-paula-villegas";
 
 
-
 /* =====================================================
-   BOTONES
+   ELEMENTOS
 ===================================================== */
 
 const botonComenzar =
@@ -1127,6 +1430,101 @@ const transicion =
     );
 
 
+const snowLayer =
+    document.getElementById(
+        "snowLayer"
+    );
+
+
+/* =====================================================
+   CREAR COPOS DE NIEVE
+===================================================== */
+
+const simbolosNieve = [
+    "❄",
+    "❅",
+    "❆",
+    "✦",
+    "✧"
+];
+
+
+function crearNieve() {
+
+    snowLayer.innerHTML = "";
+
+
+    for (
+        let i = 0;
+        i < 80;
+        i++
+    ) {
+
+        const copo =
+            document.createElement(
+                "div"
+            );
+
+
+        copo.className =
+            "copo";
+
+
+        copo.textContent =
+            simbolosNieve[
+                Math.floor(
+                    Math.random() *
+                    simbolosNieve.length
+                )
+            ];
+
+
+        copo.style.left =
+            Math.random() * 100 + "%";
+
+
+        copo.style.fontSize =
+            (
+                8 +
+                Math.random() * 20
+            ) + "px";
+
+
+        copo.style.animationDuration =
+            (
+                6 +
+                Math.random() * 12
+            ) + "s";
+
+
+        copo.style.animationDelay =
+            (
+                Math.random() * -15
+            ) + "s";
+
+
+        copo.style.opacity =
+            (
+                .45 +
+                Math.random() * .55
+            );
+
+
+        snowLayer.appendChild(
+            copo
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   INICIAR NIEVE
+===================================================== */
+
+crearNieve();
+
 
 /* =====================================================
    BOTÓN COMENZAR
@@ -1136,12 +1534,14 @@ botonComenzar.addEventListener(
     "click",
     function() {
 
+
         transicion.style.opacity =
             "1";
 
 
         setTimeout(
             function() {
+
 
                 document.body.classList.add(
                     "mostrarVideo"
@@ -1151,6 +1551,31 @@ botonComenzar.addEventListener(
                 transicion.style.opacity =
                     "0";
 
+
+                /*
+                   Intentar reproducir el video
+                   después de que la pantalla
+                   ya sea visible.
+                */
+
+                setTimeout(
+                    function() {
+
+                        if (
+                            player &&
+                            typeof player.playVideo ===
+                            "function"
+                        ) {
+
+                            player.playVideo();
+
+                        }
+
+                    },
+                    900
+                );
+
+
             },
             1000
         );
@@ -1159,71 +1584,93 @@ botonComenzar.addEventListener(
 );
 
 
-
 /* =====================================================
    API DE YOUTUBE
 ===================================================== */
 
-let player;
+let player = null;
+
+
+/* =====================================================
+   CARGAR API
+===================================================== */
 
 const youtubeAPI =
-document.createElement("script");
+    document.createElement(
+        "script"
+    );
+
 
 youtubeAPI.src =
-"https://www.youtube.com/iframe_api";
+    "https://www.youtube.com/iframe_api";
+
 
 document.head.appendChild(
     youtubeAPI
 );
 
 
-
 /* =====================================================
-   CUANDO YOUTUBE CARGUE
+   YOUTUBE LISTO
 ===================================================== */
 
 window.onYouTubeIframeAPIReady =
-function () {
+function() {
 
-    player = new YT.Player(
-        "youtube",
-        {
 
-            events: {
+    player =
+        new YT.Player(
+            "youtube",
+            {
 
-                onStateChange:
-                    detectarFinalVideo
+                events: {
+
+                    onStateChange:
+                        detectarEstadoVideo
+
+                }
 
             }
-
-        }
-    );
+        );
 
 };
 
 
-
 /* =====================================================
-   DETECTAR CUANDO TERMINA EL VIDEO
+   DETECTAR FINAL DEL VIDEO
 ===================================================== */
 
-function detectarFinalVideo(event) {
+function detectarEstadoVideo(
+    event
+) {
 
-    if (event.data === 0) {
 
-        mostrarInvitacion();
+    /*
+       Estado 0 = VIDEO TERMINADO
+    */
+
+    if (
+        event.data ===
+        YT.PlayerState.ENDED
+    ) {
+
+        mostrarFinal();
 
     }
 
 }
 
 
-
 /* =====================================================
-   MOSTRAR PANTALLA FINAL
+   MOSTRAR "LA MAGIA CONTINÚA"
 ===================================================== */
 
-function mostrarInvitacion() {
+function mostrarFinal() {
+
+
+    /*
+       Activar brillo de transición
+    */
 
     transicion.style.opacity =
         "1";
@@ -1231,6 +1678,7 @@ function mostrarInvitacion() {
 
     setTimeout(
         function() {
+
 
             document.body.classList.remove(
                 "mostrarVideo"
@@ -1252,12 +1700,12 @@ function mostrarInvitacion() {
                 900
             );
 
+
         },
         1200
     );
 
 }
-
 
 
 /* =====================================================
@@ -1268,15 +1716,18 @@ botonInvitacion.addEventListener(
     "click",
     function() {
 
+
         window.location.href =
             ENLACE_INVITACION;
 
     }
 );
 
+
 </script>
+
 
 </body>
 
+
 </html>
-```
